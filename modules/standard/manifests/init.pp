@@ -42,17 +42,17 @@ class standard {
 #####################################################################
 
 	file { 'puppet.conf':
-		path 				=>	'/etc/puppet/puppet.conf',
+		path				=>	'/etc/puppet/puppet.conf',
 		ensure			=>	file,
 		source			=>	"puppet:///modules/standard/puppet.conf",
 	}
 
 	service { 'puppet':
-		enable 			=> true,
-		ensure 			=> running,
+		enable			=> true,
+		ensure			=> running,
 		hasrestart	=>	true,
 		hasstatus		=>	true,
-		subscribe 	=> File['puppet.conf'],
+		subscribe		=> File['puppet.conf'],
 	}
 
 #####################################################################
